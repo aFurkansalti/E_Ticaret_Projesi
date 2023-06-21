@@ -1,0 +1,47 @@
+﻿@model IEnumerable<E_Ticaret_2023.Models.SiparisDetay>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sipariş Detay</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToplamTutar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Urunler.UrunAdi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToplamTutar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siparis.KullaniciID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urunler.UrunAdi)
+            </td>
+
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Siparis Listesi", "Index")
